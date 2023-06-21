@@ -1,0 +1,251 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+header {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    flex: 0 0 auto;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 auto;
+    min-height: calc(100vh - var(--header-height)); /* Set the min-height to the remaining space */
+}
+
+
+/* Left Container */
+.left-box {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ccc;
+    height: 100%;
+}
+
+/* Location grabbing */
+.location-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #ccc;
+    flex-wrap: wrap;
+}
+
+/* Making this look like other buttons was annoying */
+.file-upload-container {
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #666;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.file-upload-container:hover {
+    background-color: #555;
+}
+
+.file-upload-container label {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.file-upload-container input[type="file"] {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+
+.file-upload-name {
+    display: none;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.file-upload-name.active {
+    display: inline-block;
+    color: #666;
+}
+
+input[type="text"] {
+
+    padding: 8px 16px;
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: #666;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.button-enter {
+    background-color: #2f2;
+}
+
+.button-enter:hover {
+    background-color: #2d2;
+}
+
+.button-delete {
+    background-color: #f22;
+}
+
+.button-delete:hover {
+    background-color: #d22;
+}
+
+
+.location {
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 8px;
+}
+
+/* The map */
+.map {
+    width: 100%;
+    height: calc(100vh - 330px);
+    border: none;
+}
+.box-container {
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 auto;
+    border-bottom: 1px solid #ccc;
+}
+/* File list */
+.right-box {
+    flex: 1;
+    padding: 20px;
+}
+
+.entry {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.file-container {
+    /*    cursor: pointer; */
+    display: flex;
+    flex-direction: column;
+}
+
+/*.file-container:hover {
+    background-color: #f2f2f2;
+}*/
+
+.name {
+    display: inline;
+    padding-left: 0px;
+    font-weight: bold;
+    font-size: 20px;
+    /* lol why won't this align left */
+    text-align: left;
+    align-items: left;
+}
+
+.menu {
+    display: none;
+    background-color: #ddd;
+}
+
+/* for toggleMenu() */
+.menu.active {
+    display: block;
+}
+
+.div-button {
+    margin-top: 2px;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.viewDB {
+    background-color: #f22;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    .box-container {
+        flex-direction: column; /* Change the direction for smaller screens */
+    }
+}
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .left-box {
+        flex: 1;
+    }
+
+    .right-box {
+        flex: 1;
+        border: none;
+    }
+
+    .map {
+        height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .map {
+        height: 40vh;
+    }
+}
